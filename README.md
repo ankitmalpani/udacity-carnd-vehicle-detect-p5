@@ -9,7 +9,7 @@ Vehicle detection using computer vision and ML Classification (Udacity CarND Pro
 [image1]: ./sample_images/pipeline_1.png "pipeline1"
 [image2]: ./sample_images/pipeline_4.png "pipeline4"
 [image3]: ./sample_images/pipeline_5.png "pipeline5"
-[image4]: ./sample_images/pipeline_6.png "pipeline6"
+[image4]: ./sample_images/pipeline_2.png "pipeline6"
 [image5]: ./sample_images/ycr_orig.png "ycr_orig"
 [image6]: ./sample_images/ycr_hog0.png "ycr_h0"
 [image7]: ./sample_images/ycr_hog1.png "ycr_h1"
@@ -63,13 +63,12 @@ Here are some images that show the results for these values
 ![alt text][image3]
 ![alt text][image2]
 
-####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
+#### Working Pipeline
 
 Ultimately I searched on 4 scales (as shown above) using `YCrCb` 3-channel HOG features, spatially binned color and histograms of colors in the feature vector. This can be seen in `extract_features()` method in Cell 2. I also should mention the use of an averaging heatmap for last 15 frames. The final pipeline provided a good result on test images and the final video.  Here are some example images:
 
 ![alt text][image1]
 ![alt text][image4]
----
 
 ### Video Implementation
 
