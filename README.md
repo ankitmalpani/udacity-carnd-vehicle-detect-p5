@@ -47,11 +47,11 @@ Here is an example of one original image, converted `YCrCb` image and hog transf
 After exploring different combinations of params for colorspace `HSV` and `YCrCb` - I decided to keep these the same as lectures and it proved to be quite accurate for the classifier. the main idea for me was to get a general sense of object detection via its output.
 I really liked the outputs for `HSV` colorspace initially, and I chose that as the colorspace to go with, however after running tests with classification (described later) - I started using `YCrCb` where the classifier performed better (though) the object detection was similar to HSV space.
 
-####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
-I trained a Linear SVM as seen in Cell 7, however to see the use of HOG features, one can see it in the Cell 5 with `Extract Features` which calls a method in Cell 2 called `extract_features()`. One can see that the value of param `hog_feat` is set to `True` which basically triggers the code to extract HOG features and use it in the training set.
-
 ### Classifier
 I took the suggestion from the chapter videos and decided to go for an SVM. I started off with running a GridSearch on multiple parameters including the Kernel. I started testing with `Kernel:{'rbf', 'linear'}` and C param `C:{0.5, 1, 10}`. After some iterations and trials on the classifer i decided to proceed with a `LinearSVC` and `C=0.5` in my final Classifier. My accuracy stayed quite consistent around ~99%. With my initial trials with `rbf` kernel, I wasn't able to get good results with my test images though.
+
+#### use of HOG features
+I trained a Linear SVM as seen in Cell 7, however to see the use of HOG features, one can see it in the Cell 5 with `Extract Features` which calls a method in Cell 2 called `extract_features()`. One can see that the value of param `hog_feat` is set to `True` which basically triggers the code to extract HOG features and use it in the training set.
 
 ### Sliding Window Search
 This code was pretty much as seen in the class exercise. One can see this in the method `sliding_window` in the cell with all the methods (Cell 2). The calculations of window sizes took a few iterations and trials where I tried to estimate the right window sizes for horizon views ( Cars closer to y values of 350 - 450 ) and then slowly increasing the size of the windows.
